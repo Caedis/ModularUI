@@ -119,6 +119,7 @@ public class TestTile extends SyncedTileEntityBase implements ITileWithModularUI
                                         .setPos(7, 130))
                                 .addChild(TextWidget.dynamicString(() -> String.valueOf((int) (sliderValue + 0.5f)))
                                         .setTextAlignment(Alignment.CenterLeft)
+                                        .setDefaultColor(Color.CYAN.normal)
                                         .setSize(30, 20)
                                         .setPos(135, 130))
                                 .setDebugLabel("Page2"))

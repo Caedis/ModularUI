@@ -14,6 +14,7 @@ import java.util.function.Supplier;
 public class TextWidget extends Widget {
 
     private final Text text;
+    private int defaultColor = -1;
     protected String localised;
     private int maxWidth = -1;
     private Alignment textAlignment = Alignment.Center;
@@ -91,7 +92,7 @@ public class TextWidget extends Widget {
         textRenderer.setPos(0, 0);
         textRenderer.setShadow(text.hasShadow());
         textRenderer.setAlignment(textAlignment, size.width, size.height);
-        textRenderer.setColor(text.hasColor() ? text.getColor() : Theme.INSTANCE.getText());
+        textRenderer.setColor(text.hasColor() ? text.getColor() : defaultColor != -1 ? defaultColor :Theme.INSTANCE.getText());
         textRenderer.draw(localised);
     }
 
@@ -100,6 +101,7 @@ public class TextWidget extends Widget {
     }
 
     public TextWidget setDefaultColor(int color) {
+        this.defaultColor = color;
         this.text.color(color);
         return this;
     }
